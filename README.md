@@ -28,13 +28,13 @@ Highlighting the DBUS (main 8-bit bus) wire
 - 2 bit micro step counter called "IC" for Internal Counter
 - 8 bit program counter called "PC"
 
-# Instructions
+## Instructions
 
 - 0. NOP
   - desc: no operation
   - arg: (empty)
 
-## Registers (0-32)
+### Registers (0-32)
 
 - 2. IMA
   - desc: import from memory to A register
@@ -60,7 +60,7 @@ Highlighting the DBUS (main 8-bit bus) wire
 
 same for B (7, 8, 9) and C register (also called output register) (12, 13, 14)
 
-## Branches (32-64)
+### Branches (32-64)
 
 - 32. JMP:
   - desc: unconditional jump
@@ -86,7 +86,7 @@ same for B (7, 8, 9) and C register (also called output register) (12, 13, 14)
   - implementation: will keep reseting the Program counter
   - arg: (empty)
 
-## Operations (64-128)
+### Operations (64-128)
 
 - 64. ADD:
   - desc: add the two numbers in register A and B and put result in C
@@ -112,7 +112,7 @@ same for B (7, 8, 9) and C register (also called output register) (12, 13, 14)
   - desc: shift right one bit A and put result in C
   - arg: (empty)
 
-## I/O (128-256)
+### I/O (128-256)
 
 - 128. OUT:
   - desc: output content of A register to 7 seg displays
