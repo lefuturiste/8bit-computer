@@ -30,13 +30,13 @@ Highlighting the DBUS (main 8-bit bus) wire
 
 ## Instructions
 
-- 0. NOP
+- 0: NOP
   - desc: no operation
   - arg: (empty)
 
 ### Registers (0-32)
 
-- 2. IMA
+- 2: IMA
   - desc: import from memory to A register
   - arg: memory address to load
   - flags:
@@ -44,7 +44,7 @@ Highlighting the DBUS (main 8-bit bus) wire
     - ASTORE
     - AR <-> MADDR
 
-- 3. EXA
+- 3: EXA
   - desc: export data that A register has into memory
   - arg: memory address to store
   - flags:
@@ -52,7 +52,7 @@ Highlighting the DBUS (main 8-bit bus) wire
     - AREAD
     - AR <-> MADDR
 
-- 4. LIA
+- 4: LIA
   - desc: load immediate value into A register
   - arg: the value to load
   - flags:
@@ -62,58 +62,58 @@ same for B (7, 8, 9) and C register (also called output register) (12, 13, 14)
 
 ### Branches (32-64)
 
-- 32. JMP:
+- 32: JMP:
   - desc: unconditional jump
   - arg: address in ROM to jump to
   - flags:
     - PCSET
     - AR <-> DBUS
 
-- 35. JMC:
+- 35: JMC:
   - desc: jump if adder carry flag is set
   - arg: address in ROM to jump to
   
-- 36. JMZ: (not implemented)
+- 36: JMZ: (not implemented)
   - desc: jump if C register is zero
   - arg: address in ROM to jump to
 
-- 37. JMA: (not implemented)
+- 37: JMA: (not implemented)
   - desc: jump if C register is 255
   - arg: address in ROM to jump to
 
-- 63. HLT:
+- 63: HLT:
   - desc: halt execution of the processing unit
   - implementation: will keep reseting the Program counter
   - arg: (empty)
 
 ### Operations (64-128)
 
-- 64. ADD:
+- 64: ADD:
   - desc: add the two numbers in register A and B and put result in C
   - arg: no arg
 
-- 65. AND: (not implemented)
+- 65: AND: (not implemented)
   - desc: apply AND bitwise operation to A and B and put result in C
   - arg: (empty)
 
-- 66. IOR: (not implemented)
+- 66: IOR: (not implemented)
   - desc: apply OR bitwise operation to A and B and put result in C
   - arg: (empty)
 
-- 67. XOR: (not implemented)
+- 67: XOR: (not implemented)
   - desc: apply XOR bitwise operation to A and B and put result in C
   - arg: (empty)
 
-- 68. SHL: (not implemented)
+- 68: SHL: (not implemented)
   - desc: shift left one bit A and put result in C
   - arg: (empty)
 
-- 69. SHR: (not implemented)
+- 69: SHR: (not implemented)
   - desc: shift right one bit A and put result in C
   - arg: (empty)
 
 ### I/O (128-256)
 
-- 128. OUT:
+- 128: OUT:
   - desc: output content of A register to 7 seg displays
   - arg: (empty)
