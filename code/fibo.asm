@@ -1,30 +1,39 @@
+# 1, 1, 2, 3, 5, 8 etc
 # FIBONACCI SEQUENCE
-lia 1 # old
-lib 1 # new
-lic 0
+section init:
+  nop
+  nop
+  nop
+  nop
+  nop
+  lia 1 # old
+  lib 1 # new
+  lic 0
 
-out
+  out
 
-exa 1
-exb 2
+  exa 1
+  exb 2
 
-# add old and new
-ima 1
-imb 2
-add
+section loop:
+  # add old and new
+  ima 1
+  imb 2
+  add
 
-jmc 0
+  # reset if carry
+  jmc @init
 
-# exchange old and new
-imc 2
-exc 1
+  # exchange old and new
+  imc 2
+  exc 1
 
-# put back the result into new
-exb 2
+  # put back the result into new
+  exb 2
 
-out
+  out
 
-nop
+  nop
 
-# loop back
-jmp 10
+  # loop back
+  jmp @loop
