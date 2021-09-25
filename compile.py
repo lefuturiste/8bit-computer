@@ -27,8 +27,10 @@ instructionMap = {
 
   # BRANCHES
   'jmp': 32,
-  'jmz': 33,
   'jmc': 35,
+  'jmz': 36,
+  'jnq': 37,
+  'hlt': 63,
 
   # OPERATIONS
   'add': 64,
@@ -109,7 +111,7 @@ def parse(lines):
 humanCode = open(sourceFile, 'r')
 lines = humanCode.readlines()
 
-realCode = []
+realCode = [(0, 0)]
 ih = IntelHex()
 addr = 0
 
@@ -141,4 +143,38 @@ for sectionName, sectionLines in sections:
     addr += 1
 
 ih.write_hex_file(outputFile)
+
+def getNameFromOpCode(code):
+  for key, value in instructionMap.items():
+    if code == value:
+      return key
+  return None
+
+class bcolors:
+  HEADER = '\033[95m'
+  BLUE = '\033[94m'
+  GREEN = '\033[92m'
+  ORANGE = '\033[93m'
+  RED = '\033[91m'
+  GRAY = '\033[90m'
+  ENDC = '\033[0m'
+  BOLD = '\033[1m'
+  UNDERLINE = '\033[4m'
+
 print(realCode)
+print('Compiled code:')
+for i in range(len(realCode)):
+  if i*2 in sectionsAddrs:
+    print(f"{bcolors.BLUE}-- section {sections[sectionsAddrs.index(i*2)][0]}:{bcolors.ENDC}")
+  name, arg = getNameFromOpCode(realCode[i][0]), realCode[i][1]
+  print(
+    f"{bcolors.RED}{i:02} {bcolors.ENDC}" +
+    f"0x{i*2:02x} {bcolors.GRAY}{i*2:02}{bcolors.ENDC}:       " + 
+    f"0x{realCode[i][0]:02x} ({bcolors.GREEN}{name}{bcolors.ENDC}) -" +
+    f"  0x{arg:02x} {arg}"
+  )
+
+# for i in range(1, 100):
+#   x = '\033[' + str(i) +'m'
+#   endc = '\033[0m'
+#   print(f"{i} {x}W{endc}")

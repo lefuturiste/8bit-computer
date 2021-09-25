@@ -73,12 +73,12 @@ same for B (7, 8, 9) and C register (also called output register) (12, 13, 14)
   - desc: jump if adder carry flag is set
   - arg: address in ROM to jump to
   
-- 36: JMZ: (not implemented)
-  - desc: jump if C register is zero
+- 36: JMZ:
+  - desc: jump if B register is zero
   - arg: address in ROM to jump to
 
-- 37: JMA: (not implemented)
-  - desc: jump if C register is 255
+- 37: JNQ:
+  - desc: jump if A and B registers store differents values
   - arg: address in ROM to jump to
 
 - 63: HLT:
