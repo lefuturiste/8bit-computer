@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>one_full_bit_adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>one_full_bit_adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="540" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>one_full_bit_adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="620" y="240"/>
+    </visualElement>
+  </visualElements>
+  <wires/>
+  <measurementOrdering/>
+</circuit>
